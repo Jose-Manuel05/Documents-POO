@@ -70,7 +70,7 @@ public class Libro {
         return String.format("LIB%03d", TOTAL_LIBROS + 1);
     }
 
-    public Prestamo prestar(Estudiante estudiante) {
+    public void prestar(Estudiante estudiante) {
         if (disponible && !estudiante.getLibrosPrestados().contains(this)) {
             disponible = false;
             System.out.println("El libro '" + getTitulo() + "' ha sido prestado con éxito a " + estudiante.getNombre());
@@ -79,13 +79,11 @@ public class Libro {
             estudiante.anyadirLibro(this);
             Prestamo prestamo = new Prestamo(estudiante, this);
             System.out.println("Se ha generado el prestamo: " + prestamo);
-            return prestamo;
         } else if (estudiante.getLibrosPrestados().contains(this)) {
             System.out.println("El estudiante " + estudiante.getNombre() + " ya tiene prestado el libro '" + getTitulo() + "'");
         } else {
             System.out.println("El libro '" + getTitulo() + "' no está disponible");
         }
-        return null;
     }
 
     public void devolver(Estudiante estudiante) {
