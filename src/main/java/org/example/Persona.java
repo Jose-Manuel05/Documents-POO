@@ -22,6 +22,8 @@ public class Persona {
 
     }
 
+    //region Geters y Seters
+
     public String getNombre() {
         return nombre;
     }
@@ -82,8 +84,7 @@ public class Persona {
     public void setCiudad(String ciudad) {
         this.ciudad = ciudad;
     }
-
-
+    //endregion
 
     public String concatenar() {
 
@@ -100,7 +101,7 @@ public class Persona {
     @Override
     public String toString() {
 
-        return "Persona " + nombre + " con el apellido " + apellido + " y con el dni" + dni + " con la edad de " + edad + " y con el peso de " + peso + " con la profesion de " + profesion + " y viviendo en la ciudad de " + ciudad;
+        return "Persona " + nombre + " con el apellido " + apellido + " y con el dni: " + dni + " con la edad de " + edad + " y con el peso de " + peso + " con la profesion de " + profesion + " y viviendo en la ciudad de " + ciudad;
 
     }
 

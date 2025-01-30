@@ -1,5 +1,7 @@
 package org.example;
 
+import java.util.ArrayList;
+
 public class Estudiante {
 
     public static int contadorEstudiantes = 0;
@@ -9,21 +11,25 @@ public class Estudiante {
     private String curso;
     private int nia;
     private String email;
+    private ArrayList<Libro> librosPrestados;
 
     public Estudiante(String nombre) {
         this.nombre = nombre;
+        librosPrestados = new ArrayList<>();
         contadorEstudiantes++;
-        this.nia = contadorEstudiantes;
+        nia = contadorEstudiantes;
     }
 
     public Estudiante(String nombre, String curso, String email) {
         this.nombre = nombre;
         this.curso = curso;
-        setEmail(email); // Usar el setter para validar el email
+        setEmail(email);
+        librosPrestados = new ArrayList<>();
         contadorEstudiantes++;
-        this.nia = contadorEstudiantes;
+        nia = contadorEstudiantes;
     }
 
+    //region Geters y Seters
     public String getNombre() {
         return nombre;
     }
@@ -56,10 +62,14 @@ public class Estudiante {
         }
     }
 
-    @Override
-    public String toString() {
-        return "Estudiante: [nombre = " + nombre + ", curso = " + curso + ", nia = " + nia + ", email = " + email + "]";
+    public ArrayList<Libro> getLibrosPrestados() {
+        return librosPrestados;
     }
+
+    public void setLibrosPrestados(ArrayList<Libro> librosPrestados) {
+        this.librosPrestados = librosPrestados;
+    }
+    //endregion
 
     public static int obtenerTotalEstudiantes() {
         return contadorEstudiantes;
@@ -68,4 +78,25 @@ public class Estudiante {
     public static Boolean validarCorreo(String email) {
         return email.matches(FORMATO_CORREO);
     }
+
+    public void anyadirLibro(Libro libro) {
+        librosPrestados.add(libro);
+    }
+
+    public void borrarLibro(Libro libro) {
+        librosPrestados.remove(libro);
+    }
+
+    @Override
+    public String toString() {
+
+        if (!librosPrestados.isEmpty()){
+            return "Estudiante: nombre = " + nombre + ", curso = " + curso + ", nia = " + nia + ", email = " + email + ", librosPrestados = " + librosPrestados;
+        }else {
+            return "Estudiante: nombre = " + nombre + ", curso = " + curso + ", nia = " + nia + ", email = " + email;
+        }
+
+    }
+
+
 }
