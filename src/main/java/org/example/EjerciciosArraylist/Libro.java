@@ -1,4 +1,4 @@
-package org.example.Ejercicios;
+package org.example.EjerciciosArraylist;
 
 public class Libro {
 

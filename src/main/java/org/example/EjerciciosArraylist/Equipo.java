@@ -1,4 +1,6 @@
-package org.example.Ejercicios;
+package org.example.EjerciciosArraylist;
+
+import org.example.Persona;
 
 import java.util.ArrayList;
 
