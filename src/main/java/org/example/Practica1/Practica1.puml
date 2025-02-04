@@ -1,0 +1,70 @@
+@startuml
+class Empleado {
+    - static int contador
+    - String id
+    - String nombre
+    - String cargo
+    - Empleado director
+    + Empleado(String nombre, String cargo)
+    + String getNombre()
+    + void setNombre(String nombre)
+    - String comprobarCargo()
+    - String calcularID()
+    + String toString()
+}
+
+class AppProgramas {
+    + void main(String[] args)
+}
+
+class Programa {
+    - String nombre
+    - Cadena cadena
+    - int temporada
+    - ArrayList<Empleado> listaEmpleados
+    - ArrayList<Invitado> listaInvitados
+    - Empleado director
+    + Programa(String nombre, Cadena cadena, String nombreDirector)
+    + String getNombre()
+    + void setNombre(String nombre)
+    + ArrayList<Empleado> getListaEmpleados()
+    + ArrayList<Invitado> getListaInvitados()
+    + void insertarEmpleado(String nombre, String cargo, String nombreDirector)
+    + void insertarInvitado(String nombre, String profesion, int temporada)
+    + String toString()
+}
+
+class Cadena {
+    - String nombre
+    - ArrayList<Programa> listaProgramas
+    + Cadena(String nombre)
+    + String getNombre()
+    + void setNombre(String nombre)
+    + ArrayList<Programa> getListaProgramas()
+    + void agregarPrograma(Programa programa)
+    + String toString()
+}
+
+class Invitado {
+    - String nombre
+    - String profesion
+    - LocalDate fecha_visita
+    - int temporada
+    + Invitado(String nombre, String profesion, int temporada)
+    + String getNombre()
+    + void setNombre(String nombre)
+    + String getProfesion()
+    + void setProfesion(String profesion)
+    + LocalDate getFecha_visita()
+    + void setFecha_visita(LocalDate fecha_visita)
+    + int getTemporada()
+    + void setTemporada(int temporada)
+    + String toString()
+}
+
+Empleado "1" -- "0..*" Programa : director
+Programa "1" -- "0..*" Empleado : listaEmpleados
+Programa "1" -- "0..*" Invitado : listaInvitados
+Cadena "1" -- "0..*" Programa : listaProgramas
+AppProgramas "1" -- "1" Programa : main
+@enduml

@@ -1,0 +1,51 @@
+@startuml
+class Editorial {
+    - String nombre
+    - ArrayList<Libro> libros
+    + Editorial(String nombre)
+    + String getNombre()
+    + void setNombre(String nombre)
+    + ArrayList<Libro> getLibros()
+    + void agregarLibro(Libro libro)
+    + String toString()
+}
+
+class Estudiante {
+    - String nombre
+    - ArrayList<Prestamo> prestamos
+    + Estudiante(String nombre)
+    + String getNombre()
+    + void setNombre(String nombre)
+    + ArrayList<Prestamo> getPrestamos()
+    + void agregarPrestamo(Prestamo prestamo)
+    + String toString()
+}
+
+class Libro {
+    - String titulo
+    - Editorial editorial
+    + Libro(String titulo, Editorial editorial)
+    + String getTitulo()
+    + void setTitulo(String titulo)
+    + Editorial getEditorial()
+    + void setEditorial(Editorial editorial)
+    + String toString()
+}
+
+class Prestamo {
+    - Libro libro
+    - Estudiante estudiante
+    - LocalDate fechaPrestamo
+    + Prestamo(Libro libro, Estudiante estudiante, LocalDate fechaPrestamo)
+    + Libro getLibro()
+    + Estudiante getEstudiante()
+    + LocalDate getFechaPrestamo()
+    + String toString()
+}
+
+Editorial "1" -- "0..*" Libro : libros
+Estudiante "1" -- "0..*" Prestamo : prestamos
+Libro "1" -- "0..*" Prestamo : prestamos
+Prestamo "1" -- "1" Libro : libro
+Prestamo "1" -- "1" Estudiante : estudiante
+@enduml

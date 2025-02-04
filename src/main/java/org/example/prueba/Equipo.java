@@ -1,4 +1,4 @@
-package org.example.EjerciciosArraylist;
+package org.example.prueba;
 
 import org.example.Persona;
 

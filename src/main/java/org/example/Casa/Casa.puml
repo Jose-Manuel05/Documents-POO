@@ -1,0 +1,38 @@
+@startuml
+class Casa {
+    - String direccion
+    - ArrayList<Habitacion> habitaciones
+    + Casa(String direccion)
+    + void agregarHabitacion(String nombre, double tamano)
+    + Habitacion getHabitacion(String nombre)
+    + void mostrarHabitaciones()
+    + Habitacion habitacionMasConsumo()
+}
+
+class AppCasa {
+    + void main(String[] args)
+}
+
+class Electrodomestico {
+    - String nombre
+    - double consumo
+    + Electrodomestico(String nombre, double consumo)
+    + String getNombre()
+    + double getConsumo()
+}
+
+class Habitacion {
+    - String nombre
+    - double tamano
+    - ArrayList<Electrodomestico> electrodomesticos
+    + Habitacion(String nombre, double tamano)
+    + String getNombre()
+    + void agregarElectrodomestico(Electrodomestico electrodomestico)
+    + void mostrarElectrodomesticos()
+    + double calcularConsumo()
+}
+
+Casa "1" -- "0..*" Habitacion : habitaciones
+Habitacion "1" -- "0..*" Electrodomestico : electrodomesticos
+AppCasa "1" -- "1" Casa : main
+@enduml
