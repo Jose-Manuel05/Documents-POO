@@ -1,6 +1,6 @@
 package org.example.Casa;
 
-public class Electrodomestico {
+public class Electrodomestico    {
 
     private String nombre;
     private double consumo;

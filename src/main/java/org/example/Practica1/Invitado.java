@@ -9,11 +9,11 @@ public class Invitado {
     private LocalDate fecha_visita;
     private int temporada;
 
-    public Invitado(String nombre, String profesion, int temporada) {
+    public Invitado(String nombre, String profesion, LocalDate fecha_visita, int temporada) {
         this.nombre = nombre;
         this.profesion = profesion;
         this.temporada = temporada;
-        this.fecha_visita = LocalDate.now();
+        this.fecha_visita = fecha_visita;
     }
 
     // region Getters and Setters
@@ -48,6 +48,17 @@ public class Invitado {
     public void setFecha_visita(LocalDate fecha_visita) {
         this.fecha_visita = fecha_visita;
     }
+
+
     // endregion Getters and Setters
+
+    @Override
+    public String toString() {
+        return "Invitado{" +
+                "nombre='" + nombre + '\'' +
+                ", profesion='" + profesion + '\'' +
+                ", fechaVisita=" + fecha_visita +
+                '}';
+    }
 
 }

@@ -20,11 +20,19 @@ public class Cadena {
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
+
+    public ArrayList<Programa> getListaProgramas() {
+        return listaProgramas;
+    }
     // endregion Getters and Setters
 
     // region metodos
     public void agregarPrograma(Programa programa){
         listaProgramas.add(programa);
+    }
+
+    public void removerPrograma(Programa programa){
+        listaProgramas.remove(programa);
     }
     // endregion metodos
 
@@ -32,6 +40,7 @@ public class Cadena {
     public String toString() {
         return "Cadena{" +
                 "nombre='" + nombre + '\'' +
+                ", listaProgramas=" + listaProgramas +
                 '}';
     }
 
