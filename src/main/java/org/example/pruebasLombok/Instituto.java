@@ -18,8 +18,10 @@ import java.util.Objects;
 @ToString // Genera el método toString
 @AllArgsConstructor // Genera un constructor con todos los argumentos
 
+
 public class Instituto {
 
+    @NonNull // Marca el atributo nombre como obligatorio
     private String nombre;
     private int poblacion;
     private ArrayList<Curso> listaCursos = new ArrayList<>(); // Inicializa la lista de cursos
